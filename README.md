@@ -29,11 +29,26 @@ will resolve to "957686868"
 Build Instructions
 ------------------
 
-Ensure Java 8 JDK is installed and your JAVA_HOME system variable is set to this.
+### To build:
 
-Then, from the root of the project director:
+Ensure Java 8 JDK is installed and that your JAVA_HOME is set to this, and the JDK's bin folder is on your system path.
 
-To run:
+Clone the github repository
 
-> gradlew run <input filename>  <br/>
+Open a command prompt under the top level project folder, and execute
 
+> gradlew installApp
+
+### To install:
+
+Copy \build\install\Outpace-BankOCR and all of its contents from the project folder to a location where you wish to run it 
+
+Add the Outpace-BankOCR\bin folder to your system PATH
+
+### To run
+
+At a command prompt, enter:
+
+> Outpace-BankOCR <input filename>
+
+The application will execute and write the output to the current folder, under a unique filename.

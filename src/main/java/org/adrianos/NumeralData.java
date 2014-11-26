@@ -37,15 +37,15 @@ public enum NumeralData {
 	NINE (" _ ", 
 	      "|_|", 
 	      " _|");
-	
-	private String[] numeralArray;
-	
-	NumeralData(String... data) {
-		this.numeralArray = data;
-	}
 
-	public String[] asStringArray(){
-		return numeralArray;
-	}
+    private String[] numeralArray;
+
+    NumeralData(String... data) {
+        this.numeralArray = data;
+    }
+
+    public String[] asStringArray() {
+        return numeralArray;
+    }
 
 }

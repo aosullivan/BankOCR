@@ -8,51 +8,32 @@ public class NumeralEntryParserTest {
 
     @Test
     public void allZeroes() {
-    	NumeralEntryParser parser = new NumeralEntryParser(char000000000.split("\n"));
+        NumeralEntryParser parser = new NumeralEntryParser(char000000000.split("\n"));
         assertEquals("000000000", parser.parse().toString());
     }
 
     @Test
     public void leadingOne() {
-    	NumeralEntryParser parser = new NumeralEntryParser(char100000000.split("\n"));
+        NumeralEntryParser parser = new NumeralEntryParser(char100000000.split("\n"));
         assertEquals("100000000", parser.parse().toString());
     }
 
     @Test
     public void allFives() {
-    	NumeralEntryParser parser = new NumeralEntryParser(char957686868.split("\n"));
+        NumeralEntryParser parser = new NumeralEntryParser(char957686868.split("\n"));
         assertEquals("957686868", parser.parse().toString());
     }
 
     @Test
-    public void invalidNumbersReportERR() {    	
-    	NumeralEntryParser parser = new NumeralEntryParser(char888888888.split("\n"));
+    public void invalidNumbersReportERR() {
+        NumeralEntryParser parser = new NumeralEntryParser(char888888888.split("\n"));
         assertEquals("888888888 ERR", parser.parse().print());
     }
-    
-    
-    @Test
-    public void illegibleNumbersReportILL() {    	
-    	NumeralEntryParser parser = new NumeralEntryParser(char888888i88.split("\n"));
-        assertEquals("888888?88 ILL", parser.parse().print());
-    }
-    
-    @Test
-    public void leadingCharIsZero() {
-        NumeralEntryParser parser = new NumeralEntryParser(char000000000.split("\n"));
-        assertEquals('0', parser.charAt(0));
-    }
 
     @Test
-    public void leadingCharIsOne() {
-        NumeralEntryParser parser = new NumeralEntryParser(char100000000.split("\n"));
-        assertEquals('1', parser.charAt(0));
-    }
-
-    @Test
-    public void secondCharIsOne() {
-        NumeralEntryParser parser = new NumeralEntryParser(char010000000.split("\n"));
-        assertEquals('1', parser.charAt(3));
+    public void illegibleNumbersReportILL() {
+        NumeralEntryParser parser = new NumeralEntryParser(char88888ii88.split("\n"));
+        assertEquals("88888??88 ILL", parser.parse().print());
     }
 
     @Test
@@ -60,7 +41,7 @@ public class NumeralEntryParserTest {
         NumeralEntryParser parser = new NumeralEntryParser(char002000000.split("\n"));
         assertEquals('2', parser.charAt(6));
     }
-	
+
 	String char000000000 = 
 					" _  _  _  _  _  _  _  _  _ \n" +
 			        "| || || || || || || || || |\n" +
@@ -97,9 +78,9 @@ public class NumeralEntryParserTest {
 					"|_||_||_||_||_||_||_||_||_|\n" +
 					"                           \n";
 	
-	String char888888i88 = 
+	String char88888ii88 = 
 			" _  _  _  _  _  _  _  _  _ \n" +
 			"|_||_||_||_||_||_| _||_||_|\n" +
-			"|_||_||_||_||_||_||_||_||_|\n" +
+			"|_||_||_||_||_||_ |_||_||_|\n" +
 			"                           \n";		
 }

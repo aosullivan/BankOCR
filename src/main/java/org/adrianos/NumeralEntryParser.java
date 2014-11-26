@@ -9,7 +9,8 @@ public class NumeralEntryParser {
     private String[] numeralData;
 
     /**
-     * @param numeralData three lines of numeral data to be parsed
+     * @param numeralData
+     *            three lines of numeral data to be parsed
      */
     public NumeralEntryParser(String[] numeralData) {
         this.numeralData = numeralData;
@@ -28,7 +29,8 @@ public class NumeralEntryParser {
     }
 
     /**
-     * @param startPos  start position of the numeral within the string
+     * @param startPos
+     *            start position of the numeral within the string
      * @return char representing the numeral at index i
      */
     protected char charAt(int startPos) {

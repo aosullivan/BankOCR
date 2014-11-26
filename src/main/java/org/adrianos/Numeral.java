@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class Numeral {
 
-	private String asString = "?";
+	private String asString = "?"; //default value
 	
     private Map<NumeralData, String> toStringMap = new HashMap<>();
 
@@ -37,28 +37,12 @@ public class Numeral {
     
     @Override
     public int hashCode() {
-	    final int prime = 31;
-	    int result = 1;
-	    result = prime * result
-	            + ((asString == null) ? 0 : asString.hashCode());
-	    return result;
+	    return asString.hashCode();
     }
 
 	@Override
     public boolean equals(Object obj) {
-	    if (this == obj)
-		    return true;
-	    if (obj == null)
-		    return false;
-	    if (getClass() != obj.getClass())
-		    return false;
-	    Numeral other = (Numeral) obj;
-	    if (asString == null) {
-		    if (other.asString != null)
-			    return false;
-	    } else if (!asString.equals(other.asString))
-		    return false;
-	    return true;
+	    return asString.equals(obj.toString());
     }
 
 	@Override
