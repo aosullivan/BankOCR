@@ -7,11 +7,6 @@ import org.junit.Test;
 public class BankOCRTest {
 
     private static final String DATA_TXT = "src\\test\\resources\\data.txt";
-
-    @Test
-    public void main() {
-        BankOCR.main(DATA_TXT);
-    }
     
     @Test
     public void fiveRowTest() {

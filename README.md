@@ -26,8 +26,7 @@ e.g.
 will resolve to "957686868"
 
 
-Build Instructions
-------------------
+## Build and Installation Instructions
 
 ### To build:
 
