@@ -18,8 +18,7 @@ public class BankOCR {
     /**
      * Load data from a file into a String array
      * 
-     * @param filename
-     *            on classpath
+     * @param filename on classpath
      */
     public BankOCR(String filename) {
         List<String> linesList;
@@ -45,11 +44,11 @@ public class BankOCR {
 
         for (int i = 0; i < linesArray.length; i += 4) {
 
-            String[] numeralLineData = new String[4];
-            numeralLineData[0] = linesArray[i];
-            numeralLineData[1] = linesArray[i + 1];
-            numeralLineData[2] = linesArray[i + 2];
-            NumeralEntryParser entryParser = new NumeralEntryParser(numeralLineData);
+            String[] entryArray = new String[4];
+            entryArray[0] = linesArray[i];
+            entryArray[1] = linesArray[i + 1];
+            entryArray[2] = linesArray[i + 2];
+            NumeralEntryParser entryParser = new NumeralEntryParser(entryArray); //tight coupling, I'd refactor this if there were more than one parsing strategy
             resultsList.add(entryParser.parse());
         }
 

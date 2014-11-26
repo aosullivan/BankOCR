@@ -9,8 +9,7 @@ public class NumeralEntryParser {
     private String[] numeralData;
 
     /**
-     * @param numeralData
-     *            Pass in three lines of numeral data to be parsed
+     * @param numeralData three lines of numeral data to be parsed
      */
     public NumeralEntryParser(String[] numeralData) {
         this.numeralData = numeralData;
@@ -18,8 +17,6 @@ public class NumeralEntryParser {
 
     /**
      * Parse the nine numerals in the three rows of data
-     * 
-     * @return
      */
     public String parse() {
 
@@ -31,19 +28,17 @@ public class NumeralEntryParser {
     }
 
     /**
-     * @param i
-     *            index of the horizontal start position of the numeral within
-     *            the string
-     * @return char correponding to the numeral at the index
+     * @param startPos  start position of the numeral within the string
+     * @return char representing the numeral at index i
      */
-    protected char charAt(int i) {
+    protected char charAt(int startPos) {
 
-        String[] singleNumeralData = new String[3];
-        singleNumeralData[0] = threeCharsFrom(numeralData[0], i);
-        singleNumeralData[1] = threeCharsFrom(numeralData[1], i);
-        singleNumeralData[2] = threeCharsFrom(numeralData[2], i);
+        String[] numeralArray = new String[3];
+        numeralArray[0] = threeCharsFrom(numeralData[0], startPos);
+        numeralArray[1] = threeCharsFrom(numeralData[1], startPos);
+        numeralArray[2] = threeCharsFrom(numeralData[2], startPos);
 
-        return new Numeral(singleNumeralData).toString().charAt(0);
+        return new Numeral(numeralArray).toString().charAt(0);
     }
 
     private String threeCharsFrom(String str, int i) {

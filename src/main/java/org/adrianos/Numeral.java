@@ -10,11 +10,11 @@ import java.util.Map;
  */
 public class Numeral {
 
-    private NumeralData array;
+    private NumeralData numeralData;
 
     private Map<NumeralData, String> toStringMap = new HashMap<>();
 
-    public Numeral(String[] array) {
+    public Numeral(String[] inputArray) {
 
         // Initialize mappings from numerals 0 - 9 to string values
         toStringMap.put(NumeralData.ZERO, "0");
@@ -30,21 +30,21 @@ public class Numeral {
 
         // Search for numeral 0 - 9 matching input data
         for (NumeralData numeral : NumeralData.values()) {
-            if (Arrays.equals(array, numeral.data()))
-                this.array = numeral;
+            if (Arrays.equals(inputArray, numeral.asStringArray()))
+                this.numeralData = numeral;
         }
     }
 
     @Override
     public String toString() {
-        return toStringMap.get(array);
+        return toStringMap.get(numeralData);
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((array == null) ? 0 : array.hashCode());
+        result = prime * result + ((numeralData == null) ? 0 : numeralData.hashCode());
         return result;
     }
 
@@ -57,7 +57,7 @@ public class Numeral {
         if (getClass() != obj.getClass())
             return false;
         Numeral other = (Numeral) obj;
-        if (array != other.array)
+        if (numeralData != other.numeralData)
             return false;
         return true;
     }

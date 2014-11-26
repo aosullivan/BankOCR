@@ -38,14 +38,14 @@ public enum NumeralData {
 	      "|_|", 
 	      " _|");
 	
-	private String[] data;
+	private String[] numeralArray;
 	
 	NumeralData(String... data) {
-		this.data = data;
+		this.numeralArray = data;
 	}
 
-	public String[] data(){
-		return data;
+	public String[] asStringArray(){
+		return numeralArray;
 	}
 
 }
