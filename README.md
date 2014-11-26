@@ -6,10 +6,10 @@ Text file parser for Pipe and Underscore representations of numerals.
 Numerals 0 - 9 are accepted in the following format:
 
 <pre>
-  _    _  _     _  _  _  _  _ <br/>
- | | | _| _||_||_ |_   ||_||_|<br/>
- |_| ||_  _|  | _||_|  ||_| _|<br/>
-                          <br/>
+  _    _  _     _  _  _  _  _ <br>
+ | | | _| _||_||_ |_   ||_||_|<br>
+ |_| ||_  _|  | _||_|  ||_| _|<br>
+                          <br>
 </pre>
 Each entry in the input file should be 4 lines long, and each line should have 27 characters. The first 3 lines of each entry contain an account number written in the above format, and the fourth line is blank.
 
@@ -48,6 +48,6 @@ Add the Outpace-BankOCR\bin folder to your system PATH
 
 At a command prompt, enter:
 
-> Outpace-BankOCR <input filename>
+> Outpace-BankOCR &lt;input filename&gt;
 
 The application will execute and write the output to the current folder, under a unique filename.
