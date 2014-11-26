@@ -24,7 +24,7 @@ public class BankOCR {
         List<String> linesList;
 
         try {
-            URL url = Resources.getResource("data.txt");
+            URL url = Resources.getResource(filename);
             linesList = Resources.readLines(url, Charsets.UTF_8);
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -16,7 +16,7 @@ public class NumeralEntryParser {
     }
 
     /**
-     * Parse the nine numerals in the three rows of data
+     * @return parse the arraydata to return the account number
      */
     public String parse() {
 

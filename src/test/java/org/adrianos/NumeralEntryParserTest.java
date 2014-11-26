@@ -8,19 +8,19 @@ public class NumeralEntryParserTest {
 
     @Test
     public void allZeroes() {
-        NumeralEntryParser parser = new NumeralEntryParser(char000000000.split("\n"));
+    	NumeralEntryParser parser = new NumeralEntryParser(char000000000.split("\n"));
         assertEquals("000000000", parser.parse());
     }
 
     @Test
     public void leadingOne() {
-        NumeralEntryParser parser = new NumeralEntryParser(char100000000.split("\n"));
+    	NumeralEntryParser parser = new NumeralEntryParser(char100000000.split("\n"));
         assertEquals("100000000", parser.parse());
     }
 
     @Test
     public void allFives() {
-        NumeralEntryParser parser = new NumeralEntryParser(char957686868.split("\n"));
+    	NumeralEntryParser parser = new NumeralEntryParser(char957686868.split("\n"));
         assertEquals("957686868", parser.parse());
     }
 
