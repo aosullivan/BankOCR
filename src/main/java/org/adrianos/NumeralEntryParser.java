@@ -18,13 +18,13 @@ public class NumeralEntryParser {
     /**
      * @return parse the arraydata to return the account number
      */
-    public String parse() {
+    public AccountNumber parse() {
 
         StringBuilder response = new StringBuilder();
         for (int i = 0; i < 9; i++) {
             response.append(charAt(i * 3));
         }
-        return response.toString();
+        return new AccountNumber(response.toString());
     }
 
     /**

@@ -49,7 +49,7 @@ public class BankOCR {
             entryArray[1] = linesArray[i + 1];
             entryArray[2] = linesArray[i + 2];
             NumeralEntryParser entryParser = new NumeralEntryParser(entryArray); //tight coupling, I'd refactor this if there were more than one parsing strategy
-            resultsList.add(entryParser.parse());
+            resultsList.add(entryParser.parse().toString());
         }
 
         String[] resultsArray = new String[resultsList.size()];

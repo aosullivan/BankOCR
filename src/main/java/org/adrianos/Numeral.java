@@ -10,8 +10,8 @@ import java.util.Map;
  */
 public class Numeral {
 
-    private NumeralData numeralData;
-
+	private String asString = "?";
+	
     private Map<NumeralData, String> toStringMap = new HashMap<>();
 
     public Numeral(String[] inputArray) {
@@ -31,35 +31,39 @@ public class Numeral {
         // Search for numeral 0 - 9 matching input data
         for (NumeralData numeral : NumeralData.values()) {
             if (Arrays.equals(inputArray, numeral.asStringArray()))
-                this.numeralData = numeral;
+            	asString = toStringMap.get(numeral);
         }
     }
-
-    @Override
-    public String toString() {
-        return toStringMap.get(numeralData);
-    }
-
+    
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((numeralData == null) ? 0 : numeralData.hashCode());
-        return result;
+	    final int prime = 31;
+	    int result = 1;
+	    result = prime * result
+	            + ((asString == null) ? 0 : asString.hashCode());
+	    return result;
     }
 
-    @Override
+	@Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Numeral other = (Numeral) obj;
-        if (numeralData != other.numeralData)
-            return false;
-        return true;
+	    if (this == obj)
+		    return true;
+	    if (obj == null)
+		    return false;
+	    if (getClass() != obj.getClass())
+		    return false;
+	    Numeral other = (Numeral) obj;
+	    if (asString == null) {
+		    if (other.asString != null)
+			    return false;
+	    } else if (!asString.equals(other.asString))
+		    return false;
+	    return true;
+    }
+
+	@Override
+    public String toString() {
+        return asString;
     }
 
 }

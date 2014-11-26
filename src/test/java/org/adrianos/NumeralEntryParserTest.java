@@ -9,21 +9,34 @@ public class NumeralEntryParserTest {
     @Test
     public void allZeroes() {
     	NumeralEntryParser parser = new NumeralEntryParser(char000000000.split("\n"));
-        assertEquals("000000000", parser.parse());
+        assertEquals("000000000", parser.parse().toString());
     }
 
     @Test
     public void leadingOne() {
     	NumeralEntryParser parser = new NumeralEntryParser(char100000000.split("\n"));
-        assertEquals("100000000", parser.parse());
+        assertEquals("100000000", parser.parse().toString());
     }
 
     @Test
     public void allFives() {
     	NumeralEntryParser parser = new NumeralEntryParser(char957686868.split("\n"));
-        assertEquals("957686868", parser.parse());
+        assertEquals("957686868", parser.parse().toString());
     }
 
+    @Test
+    public void invalidNumbersReportERR() {    	
+    	NumeralEntryParser parser = new NumeralEntryParser(char888888888.split("\n"));
+        assertEquals("888888888 ERR", parser.parse().print());
+    }
+    
+    
+    @Test
+    public void illegibleNumbersReportILL() {    	
+    	NumeralEntryParser parser = new NumeralEntryParser(char888888i88.split("\n"));
+        assertEquals("888888?88 ILL", parser.parse().print());
+    }
+    
     @Test
     public void leadingCharIsZero() {
         NumeralEntryParser parser = new NumeralEntryParser(char000000000.split("\n"));
@@ -76,5 +89,17 @@ public class NumeralEntryParserTest {
 					" _  _  _  _  _  _  _  _  _ \n" +
 			        "|_||_   ||_ |_||_ |_||_ |_|\n" +
 			        " _| _|  ||_||_||_||_||_||_|\n" +
-			        "                           \n";		
+			        "                           \n";	
+	
+	String char888888888 = 
+					" _  _  _  _  _  _  _  _  _ \n" +
+					"|_||_||_||_||_||_||_||_||_|\n" +
+					"|_||_||_||_||_||_||_||_||_|\n" +
+					"                           \n";
+	
+	String char888888i88 = 
+			" _  _  _  _  _  _  _  _  _ \n" +
+			"|_||_||_||_||_||_| _||_||_|\n" +
+			"|_||_||_||_||_||_||_||_||_|\n" +
+			"                           \n";		
 }
