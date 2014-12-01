@@ -27,10 +27,10 @@ public class AccountNumber {
      *         example
      */
     protected int checkSum() {
-        IntUnaryOperator f = (pos) -> {return pos * Character.getNumericValue(accountNumber.charAt(9 - pos));};
-        return IntStream.rangeClosed(1, 9)
-                .map(f)
-                .sum();
+        IntUnaryOperator f = (pos) -> {
+            return pos * Character.getNumericValue(accountNumber.charAt(9 - pos));
+        };
+        return IntStream.rangeClosed(1, 9).map(f).sum();
     }
 
     private boolean isIllegible() {

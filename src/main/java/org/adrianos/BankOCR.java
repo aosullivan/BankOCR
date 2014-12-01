@@ -25,7 +25,8 @@ public class BankOCR {
     /**
      * Load data from a file into a String array
      * 
-     * @param filename on classpath
+     * @param filename
+     *            on classpath
      */
     public BankOCR(String filename) {
         List<String> linesList = load(filename);
@@ -55,7 +56,9 @@ public class BankOCR {
             entryArray[0] = linesArray[i];
             entryArray[1] = linesArray[i + 1];
             entryArray[2] = linesArray[i + 2];
-            NumeralEntryParser entryParser = new NumeralEntryParser(entryArray); //tight coupling, I'd refactor this if there were more than one parsing strategy
+            
+            //tight coupling, I'd refactor this if there was more than one parsing strategy
+            NumeralEntryParser entryParser = new NumeralEntryParser(entryArray); 
             resultsList.add(entryParser.parse().print());
         }
 
@@ -67,14 +70,13 @@ public class BankOCR {
      * Main loop: validate input args and terminate or continue
      */
     public static void main(String... args) {
-        if (null == args || args.length == 0 || Strings.isNullOrEmpty(args[0])){
+        if (null == args || args.length == 0 || Strings.isNullOrEmpty(args[0])) {
             System.out.println("Please pass in the inputfile filename.");
         } else {
             run(args[0]);
         }
     }
 
-    
     /**
      * Parse input file and write output to file
      */
@@ -82,7 +84,8 @@ public class BankOCR {
         String[] output = new BankOCR(filename).parse();
         String out = Joiner.on("\r\n").join(Arrays.asList(output));
         try {
-            File outFile = File.createTempFile(BankOCR.class.getName(), ".txt", new File(System.getProperty("user.dir")));
+            File outFile = File.createTempFile(BankOCR.class.getName(), ".txt",
+                    new File(System.getProperty("user.dir")));
             Files.write(out.getBytes(), outFile);
         } catch (IOException e) {
             throw new RuntimeException(e);
