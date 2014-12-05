@@ -50,6 +50,4 @@ At a command prompt, enter:
 
 > Outpace-BankOCR &lt;input filename&gt;
 
-e.g. Outpace-BankOCR D:\apps\data.txt
-
 The application will execute and write the output to the current folder, under a unique filename.
